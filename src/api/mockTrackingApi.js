@@ -80,7 +80,6 @@ class TrackingApi {
           //The server would generate ids and watchHref's for new courses in a real app.
           //Cloning so copy returned is passed by value rather than by reference.
           tracking.id = generateId(tracking);
-          tracking.trackingTime = getFormattedDate();
           trackings.push(tracking);
         }
 
