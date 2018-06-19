@@ -2,11 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import TextInput from "../common/TextInput";
 import SelectInput from "../common/SelectInput";
+import DayPickerInput from 'react-day-picker/DayPickerInput';
+import 'react-day-picker/lib/style.css';
 
 const TrackingForm = ({
   tracking,
   allAssets,
   onChange,
+  onDateChange,
   onSave,
   onDelete,
   saving,
@@ -25,6 +28,7 @@ const TrackingForm = ({
         onChange={onChange}
         error={errors.assetId}
       />
+      <br />
       <TextInput
         name="costPrice"
         label="Cost Price"
@@ -32,6 +36,7 @@ const TrackingForm = ({
         onChange={onChange}
         error={errors.costPrice}
       />
+      <br />
       <TextInput
         name="marketPrice"
         label="Market Price"
@@ -39,6 +44,12 @@ const TrackingForm = ({
         onChange={onChange}
         error={errors.marketPrice}
       />
+      <br />
+      <DayPickerInput
+        value={tracking.trackingTime}
+        onDayChange={onDateChange}
+      />
+      <br />
       <input
         type="submit"
         disabled={saving}
@@ -61,6 +72,7 @@ TrackingForm.propTypes = {
   tracking: PropTypes.object.isRequired,
   allAssets: PropTypes.array,
   onChange: PropTypes.func.isRequired,
+  onDateChange: PropTypes.func.isRequired,
   onSave: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
   saving: PropTypes.bool,

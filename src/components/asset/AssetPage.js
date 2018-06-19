@@ -24,9 +24,9 @@ class AssetPage extends React.Component {
     return (
       <div>
         <h1>Assets</h1>
-
+        <br />
         <LinkButton className="btn btn-primary" to="/asset" text="Add Asset" />
-
+        <br /><br />
         <AssetList assets={assets} />
       </div>
     );

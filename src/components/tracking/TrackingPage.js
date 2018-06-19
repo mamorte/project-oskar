@@ -25,13 +25,13 @@ class TrackingPage extends React.Component {
     return (
       <div>
         <h1>Trackings</h1>
-
+        <br />
         <LinkButton
           className="btn btn-primary"
           to="/tracking"
           text="Add Tracking"
         />
-
+        <br /><br />
         <TrackingList trackings={trackings} assets={assets} />
       </div>
     );
