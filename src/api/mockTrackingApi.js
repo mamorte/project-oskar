@@ -1,5 +1,5 @@
 import delay from "./delay";
-import { getFormattedDateTime } from "../utils/dateHelper";
+import { getFormattedDate } from "../utils/dateHelper";
 
 const trackings = [
   {
@@ -7,28 +7,42 @@ const trackings = [
     assetId: "2",
     costPrice: "21",
     marketPrice: "34",
-    trackingTime: getFormattedDateTime()
+    trackingTime: new Date("2018-02-22")
   },
   {
     id: "2",
-    assetId: "1",
-    costPrice: "23",
-    marketPrice: "37",
-    trackingTime: getFormattedDateTime()
+    assetId: "2",
+    costPrice: "22",
+    marketPrice: "35",
+    trackingTime: new Date("2018-02-28")
   },
   {
     id: "3",
-    assetId: "3",
-    costPrice: "13",
-    marketPrice: "43",
-    trackingTime: getFormattedDateTime()
+    assetId: "2",
+    costPrice: "26",
+    marketPrice: "39",
+    trackingTime: new Date("2018-03-14")
   },
   {
     id: "4",
+    assetId: "1",
+    costPrice: "23",
+    marketPrice: "37",
+    trackingTime: new Date("2015-03-25")
+  },
+  {
+    id: "5",
+    assetId: "3",
+    costPrice: "13",
+    marketPrice: "43",
+    trackingTime: new Date("2015-03-25")
+  },
+  {
+    id: "6",
     assetId: "4",
     costPrice: "76",
     marketPrice: "87",
-    trackingTime: getFormattedDateTime()
+    trackingTime: new Date("2015-03-25")
   }
 ];
 
@@ -66,7 +80,7 @@ class TrackingApi {
           //The server would generate ids and watchHref's for new courses in a real app.
           //Cloning so copy returned is passed by value rather than by reference.
           tracking.id = generateId(tracking);
-          tracking.trackingTime = getFormattedDateTime();
+          tracking.trackingTime = getFormattedDate();
           trackings.push(tracking);
         }
 

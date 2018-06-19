@@ -21,6 +21,7 @@ const AssetForm = ({
         onChange={onChange}
         error={errors.ticker}
       />
+      <br />
       <TextInput
         name="name"
         label="Name"
@@ -28,6 +29,7 @@ const AssetForm = ({
         onChange={onChange}
         error={errors.name}
       />
+      <br />
       <TextInput
         name="url"
         label="Url"
@@ -35,6 +37,7 @@ const AssetForm = ({
         onChange={onChange}
         error={errors.url}
       />
+      <br />
       <input
         type="submit"
         disabled={saving}

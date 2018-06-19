@@ -20,6 +20,7 @@ class ManageTrackingPage extends React.Component {
     };
 
     this.updateTracking = this.updateTracking.bind(this);
+    this.updateTrackingDate = this.updateTrackingDate.bind(this);
     this.saveTracking = this.saveTracking.bind(this);
     this.deleteTracking = this.deleteTracking.bind(this);
   }
@@ -28,6 +29,12 @@ class ManageTrackingPage extends React.Component {
     const field = event.target.name;
     let tracking = this.state.tracking;
     tracking[field] = event.target.value;
+    return this.setState({ tracking: tracking });
+  }
+
+  updateTrackingDate(date) {
+    let tracking = this.state.tracking;
+    tracking["trackingTime"] = date;
     return this.setState({ tracking: tracking });
   }
 
@@ -73,6 +80,7 @@ class ManageTrackingPage extends React.Component {
         tracking={this.state.tracking}
         allAssets={this.props.assets}
         onChange={this.updateTracking}
+        onDateChange={this.updateTrackingDate}
         onSave={this.saveTracking}
         onDelete={this.deleteTracking}
         saving={this.state.saving}

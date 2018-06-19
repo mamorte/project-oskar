@@ -17,8 +17,24 @@ body {
   font-weight: 300;
 }
 
+th, td {
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: $vin-blue;
+  color: white;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
 td {
-	padding: 12px;
+  white-space: nowrap;
+	padding: 5px;
+}
+
+h1 {
+	color: $vin-green;
 }
 
 h2 {

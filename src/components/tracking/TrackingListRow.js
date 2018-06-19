@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import LinkButton from "../common/LinkButton";
+import { getFormattedDate } from "../../utils/dateHelper";
 
 const TrackingListRow = ({ tracking, assetName }) => {
   return (
@@ -12,7 +13,7 @@ const TrackingListRow = ({ tracking, assetName }) => {
           text="Edit"
         />
       </td>
-      <td>{tracking.trackingTime}</td>
+      <td>{getFormattedDate(tracking.trackingTime)}</td>
       <td>{assetName}</td>
       <td>{tracking.costPrice}</td>
       <td>{tracking.marketPrice}</td>
