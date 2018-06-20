@@ -6,18 +6,7 @@ import * as trackingActions from "../../actions/trackingActions";
 import TrackingList from "./TrackingList";
 import LinkButton from "../common/LinkButton";
 
-class TrackingPage extends React.Component {
-  static contextTypes = {
-    router: PropTypes.object
-  };
-
-  constructor(props, context) {
-    super(props, context);
-  }
-
-  trackingRow(tracking, index) {
-    return <div key={index}>{tracking.assetId}</div>;
-  }
+export class TrackingPage extends React.Component {
 
   render() {
     const { trackings } = this.props;

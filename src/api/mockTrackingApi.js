@@ -1,5 +1,4 @@
 import delay from "./delay";
-import { getFormattedDate } from "../utils/dateHelper";
 
 const trackings = [
   {

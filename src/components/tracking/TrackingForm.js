@@ -45,11 +45,13 @@ const TrackingForm = ({
         error={errors.marketPrice}
       />
       <br />
+      Tracking Date
+      <br />
       <DayPickerInput
         value={tracking.trackingTime}
         onDayChange={onDateChange}
       />
-      <br />
+      <br /><br />
       <input
         type="submit"
         disabled={saving}

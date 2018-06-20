@@ -1,6 +1,7 @@
 /* eslint-disable import/no-named-as-default */
 import { NavLink, Route, Switch/*, withRouter*/ } from "react-router-dom";
 
+import DashboardPage from "./dashboard/DashboardPage";
 import AssetPage from "./asset/AssetPage";
 import ManageAssetPage from "./asset/ManageAssetPage";
 import TrackingPage from "./tracking/TrackingPage";
@@ -20,13 +21,16 @@ class App extends React.Component {
       return (
       <div>
         <div>
-          <NavLink exact to="/trackings" activeStyle={{ color: "blue" }}>Trackings</NavLink>
+          <NavLink exact to="/dashboard" activeStyle={{ color: "blue" }}>Dashboard</NavLink>
+          {" | "}
+          <NavLink to="/trackings" activeStyle={{ color: "blue" }}>Trackings</NavLink>
           {" | "}
           <NavLink to="/assets" activeStyle={{ color: "blue" }}>Assets</NavLink>
           {/*this.props.loading > 0 && <LoadingDots interval={100} dots={20} />*/}
         </div>
         <Switch>
-          <Route exact path="/trackings" component={TrackingPage} />
+          <Route exact path="/dashboard" component={DashboardPage} />
+          <Route path="/trackings" component={TrackingPage} />
           <Route path="/tracking" component={ManageTrackingPage} />
           <Route path="/managetracking/:id" component={ManageTrackingPage} />
           <Route path="/assets" component={AssetPage} />
