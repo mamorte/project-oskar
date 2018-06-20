@@ -1,6 +1,5 @@
 import * as types from "./actionTypes";
 import trackingApi from "../api/mockTrackingApi";
-import dashboardApi from "../api/mockDashboardApi";
 import { beginAjaxCall } from "./ajaxStatusActions";
 
 export function loadDashboardSuccess(aggregates) {
@@ -12,9 +11,9 @@ export function loadDashboard() {
     dispatch(beginAjaxCall());
     trackingApi
       .getAllTrackings()
-      .then(trackings => {
-        dashboardApi.aggregateTrackings(trackings);
-      })
+      //.then(allTrackings => {
+      //    trackingApi.aggregateTrackings(allTrackings);
+      //})
       .then(aggregates => {
         dispatch(loadDashboardSuccess(aggregates));
       })

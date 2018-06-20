@@ -59,6 +59,10 @@ class TrackingApi {
     });
   }
 
+  static aggregateTrackings() {
+    return trackings.splice(0,2);
+  }
+
   static saveTracking(tracking) {
     tracking = Object.assign({}, tracking); // to avoid manipulating object passed in.
     return new Promise((resolve, reject) => {
