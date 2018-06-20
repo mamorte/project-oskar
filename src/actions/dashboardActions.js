@@ -3,18 +3,18 @@ import trackingApi from "../api/mockTrackingApi";
 import dashboardApi from "../api/mockDashboardApi";
 import { beginAjaxCall } from "./ajaxStatusActions";
 
-export function loadDashboardSuccess(dashboard) {
-    return { type: types.LOAD_DASHBOARD_SUCCESS, dashboard };
-  }
+export function loadDashboardSuccess(aggregates) {
+  return { type: types.LOAD_DASHBOARD_SUCCESS, aggregates };
+}
 
 export function loadDashboard() {
   return dispatch => {
     dispatch(beginAjaxCall());
-        //trackingApi.getAllTrackings()
-        //.then(trackings => {
-            //dashboardApi.aggregateTrackings(trackings);
-        //})
-        dashboardApi.aggregateTrackings()
+    trackingApi
+      .getAllTrackings()
+      .then(trackings => {
+        dashboardApi.aggregateTrackings(trackings);
+      })
       .then(aggregates => {
         dispatch(loadDashboardSuccess(aggregates));
       })
