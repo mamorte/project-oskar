@@ -60,7 +60,12 @@ class TrackingApi {
   }
 
   static aggregateTrackings() {
-    return trackings.splice(0,2);
+    let aggregates = [trackings[1]];
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(Object.assign([], aggregates));
+      }, delay);
+    });
   }
 
   static saveTracking(tracking) {

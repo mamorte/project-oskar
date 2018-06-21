@@ -6,19 +6,32 @@ export function loadDashboardSuccess(aggregates) {
   return { type: types.LOAD_DASHBOARD_SUCCESS, aggregates };
 }
 
-export function loadDashboard() {
+export function loadAggregates() {
   return dispatch => {
     dispatch(beginAjaxCall());
     trackingApi
-      .getAllTrackings()
-      //.then(allTrackings => {
-      //    trackingApi.aggregateTrackings(allTrackings);
-      //})
-      .then(aggregates => {
-        dispatch(loadDashboardSuccess(aggregates));
+      .aggregateTrackings()
+      .then(response => {
+        dispatch(loadDashboardSuccess(response));
       })
       .catch(error => {
         throw error;
       });
   };
 }
+
+/*
+export function loadTrackingsAndTheirAggregates() {
+  // Again, Redux Thunk will inject dispatch here.
+  // It also injects a second argument called getState() that lets us read the current state.
+  return (dispatch, getState) => {
+    // Remember I told you dispatch() can now handle thunks?
+    return dispatch(loadTrackings()).then(() => {
+      // Assuming this is where the fetched user got stored
+      const trackingsToAggregate = getState().allTrackings;
+      // And we can dispatch() another thunk now!
+      return dispatch(getAggregates(trackingsToAggregate));
+    });
+  };
+}
+*/

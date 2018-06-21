@@ -8,20 +8,20 @@ import DashboardTable from "./DashboardTable";
 export class DashboardPage extends React.Component {
 
     render() {
-      const { trackings } = this.props;
+      const { aggregates } = this.props;
       const { assets } = this.props;
       return (
         <div>
           <h1>Dashboard</h1>
           <br /><br />
-          <DashboardTable rows={trackings} assets={assets} />
+          <DashboardTable rows={aggregates} assets={assets} />
         </div>
       );
     }
 }
 
     DashboardPage.propTypes = {
-      trackings: PropTypes.array.isRequired,
+      aggregates: PropTypes.array.isRequired,
       actions: PropTypes.object.isRequired,
       assets: PropTypes.array.isRequired,
     };
@@ -35,7 +35,7 @@ export class DashboardPage extends React.Component {
       });
     
       return {
-        trackings: state.trackings,
+        aggregates: state.aggregates,
         assets: assetObjects
       };
     }
