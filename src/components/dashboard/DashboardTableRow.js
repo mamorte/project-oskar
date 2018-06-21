@@ -9,6 +9,7 @@ const DashboardTableRow = ({ row, assetName }) => {
       <td>{assetName}</td>
       <td>{row.costPrice}</td>
       <td>{row.marketPrice}</td>
+      <td>{row.diff}</td>
     </tr>
   );
 };

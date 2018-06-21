@@ -17,6 +17,7 @@ const DashboardTable = ({ rows, assets }) => {
           <th>Asset</th>
           <th>Cost Price</th>
           <th>Market Price</th>
+          <th>Diff</th>
         </tr>
       </thead>
       <tbody>
