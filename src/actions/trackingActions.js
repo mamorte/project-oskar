@@ -1,6 +1,7 @@
 import * as types from "./actionTypes";
 import trackingApi from "../api/mockTrackingApi";
 import { beginAjaxCall, ajaxCallError } from "./ajaxStatusActions";
+import { loadUpdatedAggregates } from "./dashboardActions";
 
 export function loadTrackingsSuccess(trackings) {
   return { type: types.LOAD_TRACKINGS_SUCCESS, trackings };
@@ -41,6 +42,7 @@ export function saveTracking(tracking) {
         tracking.id
           ? dispatch(updateTrackingSuccess(savedTracking))
           : dispatch(createTrackingSuccess(savedTracking));
+        dispatch(loadUpdatedAggregates());
       })
       .catch(error => {
         dispatch(ajaxCallError(error));
@@ -56,6 +58,7 @@ export function deleteTracking(tracking) {
       .deleteTracking(tracking.id)
       .then(deletedTracking => {
           dispatch(deleteTrackingSuccess(deletedTracking));
+          dispatch(loadUpdatedAggregates());
       })
       .catch(error => {
         dispatch(ajaxCallError(error));

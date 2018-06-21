@@ -2,17 +2,13 @@ import * as types from "./actionTypes";
 import trackingApi from "../api/mockTrackingApi";
 import { beginAjaxCall } from "./ajaxStatusActions";
 
-export function loadDashboardSuccess(aggregates) {
-  return { type: types.LOAD_DASHBOARD_SUCCESS, aggregates };
-}
-
-export function loadAggregates() {
+export function loadUpdatedAggregates() {
   return dispatch => {
     dispatch(beginAjaxCall());
-    trackingApi
-      .aggregateTrackings()
-      .then(response => {
-        dispatch(loadDashboardSuccess(response));
+    return trackingApi
+    .getAllTrackings()
+      .then(aggregates => {
+        dispatch( { type: types.LOAD_UPDATED_AGGREGATES_SUCCESS, aggregates });
       })
       .catch(error => {
         throw error;

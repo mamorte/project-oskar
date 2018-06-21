@@ -1,6 +1,7 @@
 import * as types from "./actionTypes";
 import assetApi from "../api/mockAssetApi";
 import { beginAjaxCall, ajaxCallError } from "./ajaxStatusActions";
+import { loadUpdatedAggregates } from "./dashboardActions";
 
 export function loadAssetsSuccess(assets) {
   return { type: types.LOAD_ASSETS_SUCCESS, assets };
@@ -41,6 +42,7 @@ export function saveAsset(asset) {
         asset.id
           ? dispatch(updateAssetSuccess(savedAsset))
           : dispatch(createAssetSuccess(savedAsset));
+        dispatch(loadUpdatedAggregates());
       })
       .catch(error => {
         dispatch(ajaxCallError(error));
@@ -56,6 +58,7 @@ export function deleteAsset(asset) {
       .deleteAsset(asset.id)
       .then(deletedAsset => {
           dispatch(deleteAssetSuccess(deletedAsset));
+      dispatch(loadUpdatedAggregates());
       })
       .catch(error => {
         dispatch(ajaxCallError(error));

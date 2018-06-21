@@ -59,15 +59,6 @@ class TrackingApi {
     });
   }
 
-  static aggregateTrackings() {
-    let aggregates = [trackings[1]];
-    return new Promise(resolve => {
-      setTimeout(() => {
-        resolve(Object.assign([], aggregates));
-      }, delay);
-    });
-  }
-
   static saveTracking(tracking) {
     tracking = Object.assign({}, tracking); // to avoid manipulating object passed in.
     return new Promise((resolve, reject) => {
