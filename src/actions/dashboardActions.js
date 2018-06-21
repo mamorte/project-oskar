@@ -7,8 +7,8 @@ export function loadUpdatedAggregates() {
     dispatch(beginAjaxCall());
     return trackingApi
     .getAllTrackings()
-      .then(aggregates => {
-        dispatch( { type: types.LOAD_UPDATED_AGGREGATES_SUCCESS, aggregates });
+      .then(trackings => {
+        dispatch( { type: types.LOAD_UPDATED_AGGREGATES_SUCCESS, trackings });
       })
       .catch(error => {
         throw error;

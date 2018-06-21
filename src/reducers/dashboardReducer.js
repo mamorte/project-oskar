@@ -5,18 +5,23 @@ export default function dashboardReducer(
   state = initialState.aggregates,
   action
 ) {
-  switch (action.type) {
+    switch (action.type) {
     case types.LOAD_UPDATED_AGGREGATES_SUCCESS:
-      return [...aggregateTrackings(action.aggregates)];
-
+      //let newState = [Object.assign({}, aggregateTrackings(action.trackings))];
+      let newState = Object.assign([], aggregateTrackings(action.trackings));
+      console.log(action.trackings);
+      return newState;
     default:
       return state;
   }
 }
 
 function aggregateTrackings(trackings) {
-  trackings.forEach(element => {    
+  return trackings;
+  /*
+  trackings.forEach(element => {
     element["diff"] = element["marketPrice"];// - element["costPrice"];
   });
-  return trackings;
+  return [trackings[1]];
+  */
 }

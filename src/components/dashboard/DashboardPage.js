@@ -25,7 +25,7 @@ export class DashboardPage extends React.Component {
       actions: PropTypes.object.isRequired,
       assets: PropTypes.array.isRequired,
     };
-    
+
     function mapStateToProps(state) {
       const assetObjects = state.assets.map(asset => {
         return {
@@ -33,18 +33,17 @@ export class DashboardPage extends React.Component {
           text: asset.name
         };
       });
-    
+      debugger;
       return {
         aggregates: state.aggregates,
         assets: assetObjects
       };
     }
-    
+
     function mapDispatchToProps(dispatch) {
       return {
         actions: bindActionCreators(dashboardActions, dispatch)
       };
     }
-    
+
     export default connect(mapStateToProps, mapDispatchToProps)(DashboardPage);
-    
