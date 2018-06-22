@@ -33,7 +33,6 @@ export class DashboardPage extends React.Component {
           text: asset.name
         };
       });
-      debugger;
       return {
         aggregates: state.aggregates,
         assets: assetObjects
