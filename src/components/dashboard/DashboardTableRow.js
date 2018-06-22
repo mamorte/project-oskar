@@ -3,13 +3,18 @@ import PropTypes from "prop-types";
 import { getFormattedDate } from "../../utils/dateHelper";
 
 const DashboardTableRow = ({ row, assetName }) => {
+  let costPrice = row.costPrice.toLocaleString('no-NO', { style: 'currency', currency: 'NOK' });
+  let marketPrice = row.marketPrice.toLocaleString('no-NO', { style: 'currency', currency: 'NOK' });
+  let yieldValue = row.yieldValue.toLocaleString('no-NO', { style: 'currency', currency: 'NOK' });
+  let yieldPercent = row.yieldPercent.toLocaleString('no-NO', { style: 'percent'});
   return (
     <tr>
       <td>{getFormattedDate(row.trackingTime)}</td>
       <td>{assetName}</td>
-      <td>{row.costPrice}</td>
-      <td>{row.marketPrice}</td>
-      <td>{row.diff}</td>
+      <td>{costPrice}</td>
+      <td>{marketPrice}</td>
+      <td>{yieldValue}</td>
+      <td>{yieldPercent}</td>
     </tr>
   );
 };

@@ -13,7 +13,13 @@ export default function dashboardReducer(state = initialState.aggregates, action
 function aggregateTrackings(trackings) {
   let allTrackings = trackings.map(tracking => Object.assign({}, tracking));
   allTrackings.forEach(tracking => {
-    tracking["diff"] = tracking["marketPrice"];
+    let costPrice = parseFloat(tracking["costPrice"]);
+    let marketPrice = parseFloat(tracking["marketPrice"]);
+    let yieldValue = marketPrice - costPrice;
+    tracking["costPrice"] = costPrice;
+    tracking["marketPrice"] = marketPrice;
+    tracking["yieldValue"] = yieldValue;
+    tracking["yieldPercent"] = ((yieldValue / costPrice) * 100);
   });
   return allTrackings;
 }
