@@ -1,36 +1,55 @@
 import React from "react";
 import PropTypes from "prop-types";
-import DashboardTableRow from "./DashboardTableRow";
-
-function getAssetName(assets, assetId) {
-  const asset = assets.filter(asset => asset.value == assetId);
-  if (asset.length) return asset[0].text;
-  return null;
-}
+import ReactTable from "react-table";
+import "react-table/react-table.css";
+import _ from 'lodash'
 
 const DashboardTable = ({ rows, assets }) => {
   return (
-    <table className="table">
-      <thead>
-        <tr>
-          <th>Tracking Date</th>
-          <th>Asset</th>
-          <th>Cost Price</th>
-          <th>Market Price</th>
-          <th>Yield</th>
-          <th>Yield Percent</th>
-        </tr>
-      </thead>
-      <tbody>
-        {rows.map(row => (
-          <DashboardTableRow
-            key={row.id}
-            row={row}
-            assetName={getAssetName(assets, row.assetId)}
-          />
-        ))}
-      </tbody>
-    </table>
+    <div>
+    <ReactTable
+      data={rows}
+      columns={[
+        {
+          Header: "Time and Assets",
+          columns: [
+            {
+              Header: "Tracking Time",
+              accessor: "trackingTime"
+            },
+            {
+              Header: "Asset",
+              id: "assetId",
+              accessor: d => { let asset = assets.filter(asset => asset.value == d.assetId); if(asset.length) return asset[0].text; }
+            }
+          ]
+        },
+        {
+          Header: "Price and Yield",
+          columns: [
+            {
+              Header: "Cost Price",
+              accessor: "costPrice",
+              aggregate: vals => _.sum(vals)
+            },
+            {
+              Header: "Market Price",
+              accessor: "marketPrice",
+              aggregate: vals => _.sum(vals)
+            },
+            {
+              Header: "Yield Value",
+              accessor: "yieldValue",
+              aggregate: vals => _.sum(vals)
+            }
+          ]
+        }
+      ]}
+      pivotBy={["trackingTime"]}
+      defaultPageSize={10}
+      className="-striped -highlight"
+    />
+  </div>
   );
 };
 

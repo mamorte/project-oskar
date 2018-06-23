@@ -49,7 +49,6 @@ function aggregateTrackings(trackings) {
       "children": trackingsByTime[time]
     });
   }
-  console.log(JSON.stringify(final));
-
+  //console.log(JSON.stringify(final));
   return allTrackings;
 }
