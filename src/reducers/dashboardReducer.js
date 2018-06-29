@@ -1,6 +1,7 @@
 import * as types from "../actions/actionTypes";
 import initialState from "./initialState";
 import _ from "lodash";
+import { getFormattedDate } from "../utils/dateHelper";
 
 export default function dashboardReducer(
   state = initialState.aggregates,
@@ -42,6 +43,7 @@ function aggregateTrackings(trackings) {
     });
     final.push({
       "trackingTime": time,
+      "trackingTimeShort": getFormattedDate(new Date(time)),
       "costPrice": totalCostPrice,
       "marketPrice": totalMarketPrice,
       "yieldValue": totalYieldValue,
@@ -49,6 +51,15 @@ function aggregateTrackings(trackings) {
       "children": trackingsByTime[time]
     });
   }
+
+  final.sort(function(a, b){
+    var x = a.trackingTimeShort.toLowerCase();
+    var y = b.trackingTimeShort.toLowerCase();
+    if (x < y) {return -1;}
+    if (x > y) {return 1;}
+    return 0;
+  });
+
   //console.log(JSON.stringify(final));
-  return allTrackings;
+  return final;
 }

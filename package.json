@@ -39,6 +39,7 @@
     "react-router-dom": "4.2.2",
     "react-router-redux": "5.0.0-alpha.6",
     "react-table": "6.8.6",
+    "recharts": "1.0.0-beta.10",
     "redux": "3.6.0",
     "redux-thunk": "2.1.0",
     "toastr": "2.1.4"

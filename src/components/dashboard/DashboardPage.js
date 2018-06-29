@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as dashboardActions from "../../actions/dashboardActions";
 import DashboardTable from "./DashboardTable";
+import StackedBarChart from "./StackedBarChart";
+import SimpleLineChart from "./SimpleLineChart";
 
 export class DashboardPage extends React.Component {
 
@@ -13,8 +15,17 @@ export class DashboardPage extends React.Component {
       return (
         <div>
           <h1>Dashboard</h1>
-          <br /><br />
-          <DashboardTable rows={aggregates} assets={assets} />
+          <table>
+            <tbody>
+            <tr>
+                <td colSpan="2"><DashboardTable rows={aggregates} assets={assets} /></td>
+            </tr>
+            <tr>
+              <td><StackedBarChart data={aggregates} /></td>
+              <td><SimpleLineChart data={aggregates} /></td>
+            </tr>
+            </tbody>
+          </table>
         </div>
       );
     }
