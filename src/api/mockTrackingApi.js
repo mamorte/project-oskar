@@ -1,49 +1,5 @@
 import delay from "./delay";
-
-const trackings = [
-  {
-    id: "1",
-    assetId: "2",
-    costPrice: "21",
-    marketPrice: "34",
-    trackingTime: new Date("2018-02-22")
-  },
-  {
-    id: "2",
-    assetId: "2",
-    costPrice: "22",
-    marketPrice: "35",
-    trackingTime: new Date("2018-02-28")
-  },
-  {
-    id: "3",
-    assetId: "2",
-    costPrice: "26",
-    marketPrice: "39",
-    trackingTime: new Date("2018-03-14")
-  },
-  {
-    id: "4",
-    assetId: "1",
-    costPrice: "23",
-    marketPrice: "37",
-    trackingTime: new Date("2015-03-25")
-  },
-  {
-    id: "5",
-    assetId: "3",
-    costPrice: "13",
-    marketPrice: "43",
-    trackingTime: new Date("2015-03-25")
-  },
-  {
-    id: "6",
-    assetId: "4",
-    costPrice: "76",
-    marketPrice: "87",
-    trackingTime: new Date("2015-03-25")
-  }
-];
+import trackings from "./trackings";
 
 //This would be performed on the server in a real app. Just stubbing in.
 const generateId = () => {
