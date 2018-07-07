@@ -10,7 +10,7 @@ class TrackingApi {
   static getAllTrackings() {
     return new Promise(resolve => {
       setTimeout(() => {
-        resolve(Object.assign([], trackings));
+        resolve(trackings);
       }, delay);
     });
   }

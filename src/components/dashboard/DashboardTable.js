@@ -15,7 +15,7 @@ const DashboardTable = ({ rows, assets }) => {
             Header: "Tracking Time",
             id: "trackingTime",
             accessor: d => {
-              let theDate = getFormattedDate(d.trackingTime);
+              let theDate = getFormattedDate(new Date(d.trackingTime));
               if (theDate.length) return theDate;
             },
             width: 100
