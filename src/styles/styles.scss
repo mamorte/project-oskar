@@ -9,7 +9,7 @@ body {
   line-height: 1.4em;
   color: #4d4d4d;
   min-width: 230px;
-  max-width: 550px;
+  //max-width: 550px;
   margin: 0 auto;
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
@@ -24,13 +24,15 @@ th, td {
 th {
   background-color: $vin-blue;
   color: white;
+  white-space: nowrap;
+  padding: 10px
 }
 
 tr:nth-child(even) {background-color: #f2f2f2;}
 
 td {
   white-space: nowrap;
-	padding: 5px;
+	padding: 10px;
 }
 
 h1 {

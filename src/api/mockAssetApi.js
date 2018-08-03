@@ -1,37 +1,5 @@
 import delay from "./delay";
-
-const assets = [
-  {
-    id: "1",
-    ticker: "KLPAIKS:NO",
-    name: "KLP AksjeVerden Indeks",
-    url: "https://www.bloomberg.com/quote/KLPAIKS:NO"
-  },
-  {
-    id: "2",
-    ticker: "KLPAMI2:NO",
-    name: "KLP AksjeFremvoksende Markeder Indeks II",
-    url: "https://www.bloomberg.com/quote/KLPAMI2:NO"
-  },
-  {
-    id: "3",
-    ticker: "KLPANII:NO",
-    name: "KLP AksjeNorge Indeks II VPFO",
-    url: "https://www.bloomberg.com/quote/KLPANII:NO"
-  },
-  {
-    id: "4",
-    ticker: "KLAEIII:NO",
-    name: "KLP AksjeEuropa Indeks III",
-    url: "https://www.bloomberg.com/quote/KLAEIII:NO"
-  },
-  {
-    id: "5",
-    ticker: "MSFT",
-    name: "Microsoft",
-    url: "https://finance.yahoo.com/quote/MSFT/chart?p=MSFT"
-  }
-];
+import assets from "./assets";
 
 //This would be performed on the server in a real app. Just stubbing in.
 const generateId = asset => {
