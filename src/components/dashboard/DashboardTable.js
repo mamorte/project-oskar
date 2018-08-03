@@ -4,6 +4,7 @@ import ReactTable from "react-table";
 import "react-table/react-table.css";
 import _ from "lodash";
 import { getFormattedDate } from "../../utils/dateHelper";
+import { debug } from "util";
 
 const DashboardTable = ({ rows, assets }) => {
   return (
@@ -18,7 +19,7 @@ const DashboardTable = ({ rows, assets }) => {
               let theDate = getFormattedDate(new Date(d.trackingTime));
               if (theDate.length) return theDate;
             },
-            width: 100
+            width: 200
           },
           {
             Header: "Asset",
@@ -48,10 +49,10 @@ const DashboardTable = ({ rows, assets }) => {
             width: 100
           },
           {
-            Header: "Yield Percent",
+            Header: "Yield Percent (Average)",
             accessor: "yieldPercent",
             aggregate: vals => _.mean(vals),
-            width: 100
+            width: 200
           }
         ]}
         pivotBy={["trackingTime"]}
